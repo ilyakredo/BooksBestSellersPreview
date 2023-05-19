@@ -1,0 +1,85 @@
+.create {
+    color: var(--dark-2);
+    max-width: 600px;
+    margin: 60px auto;
+}
+
+.create .pageTitle {
+    text-align: center;
+}
+
+.create form {
+    padding-bottom: 10px;
+}
+
+.create label span {
+    display: block;
+    margin: 30px 0 10px;
+}
+
+.create p {
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+.create .btn {
+    display: block;
+    width: 140px;
+    font-size: 1em;
+    color: var(--light-1);
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--navBg);
+    text-decoration: none;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+.create .detailsWrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9em;
+    color: var(--dark-2);
+}
+
+.detailsWrapper select {
+    color: var(--dark-2);
+    flex-basis: 200px;
+    padding: 8px;
+    font-size: 0.9em;
+    border: 1px solid var(--light-3);
+    background-color: var(--light-1);
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+.detailsWrapper option {
+    outline: none;
+}
+
+.detailsWrapper input {
+    color: var(--dark-2);
+    box-sizing: border-box;
+    height: 40px;
+}
+
+.create .detailsWrapper .btn {
+    box-sizing: border-box;
+    height: 40px;
+    margin: 0;
+    border: 1px solid var(--light-3);
+
+}
+
+.errorMsg {
+    color: var(--errMsg);
+}
+
+/* dark mode */
+
+.create.dark {
+    color: var(--light-5);
+}

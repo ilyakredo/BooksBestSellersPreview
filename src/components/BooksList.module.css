@@ -1,0 +1,66 @@
+.booksList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.booksList .card {
+    background: var(--light-1);
+    color: var(--dark-1);
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.booksList .card:hover {
+    transform: rotate(3deg);
+}
+
+.booksList .card h3 {
+    color: var(--dark-2);
+    margin-bottom: 6px;
+}
+
+.booksList .card p {
+    color: var(--dark-4);
+    font-size: 0.9em;
+}
+
+.booksList .card div {
+    color: var(--dark-2);
+    font-size: 0.7em;
+    margin: 20px 0;
+    line-height: 1.5em;
+}
+
+.booksList .card a {
+    color: var(--dark-2);
+    display: block;
+    text-decoration: none;
+    background: var(--light-4);
+    font-size: 0.9em;
+    width: 180px;
+    text-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 20px auto;
+}
+
+/* dark mode */
+
+.booksList .card.dark {
+    background: var(--dark-2);
+}
+
+.booksList .card.dark p,
+.booksList .card.dark h3,
+.booksList .card.dark div {
+    color: var(--light-5);
+}

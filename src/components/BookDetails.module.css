@@ -1,0 +1,17 @@
+.bookDetails {
+    font-size: 0.9em;
+    line-height: 0.4em;
+    display: flex;
+}
+
+.bookDetails p {
+    margin-right: 5px;
+}
+
+.bookDetails p::after {
+    content: ", ";
+}
+
+.bookDetails p:last-child:after {
+    content: "";
+}

@@ -1,0 +1,67 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "A Line in the Sand",
+      "details": [
+        {
+          "Author": "Kevin Powers"
+        },
+        {
+          "EAN/UPC": "9780316507127"
+        },
+        {
+          "Pages": "368"
+        },
+        {
+          "Cover": "Hardcover"
+        }
+      ],
+      "description": "One early morning on a Norfolk beach in Virginia, a dead body is discovered by a man taking his daily swim--Arman Bajalan, formerly an interpreter in Iraq. After narrowly surviving an assassination attempt that killed his wife and child, Arman has been given lonely sanctuary in the US as a maintenance worker at the Sea Breeze Motel. Now, convinced that the body is connected to his past, he knows he is still not safe.",
+      "publisher": "Little Brown and Company",
+      "imageUrl": "https://images-us.bookshop.org/ingram/9780316507127.jpg?height=500&v=v2-8a74661cfb105da7e7be5113b51371c0"
+    },
+    {
+      "id": "2",
+      "title": "Demon Copperhead: A Pulitzer Prize Winner",
+      "details": [
+        {
+          "Author": "Barbara Kingsolver"
+        },
+        {
+          "EAN/UPC": "9780063251922"
+        },
+        {
+          "Pages": "560"
+        },
+        {
+          "Cover": "Hardcover"
+        }
+      ],
+      "description": "Set in the mountains of southern Appalachia, Demon Copperhead is the story of a boy born to a teenaged single mother in a single-wide trailer, with no assets beyond his dead father's good looks and copper-colored hair, a caustic wit, and a fierce talent for survival. Relayed in his own unsparing voice, Demon braves the modern perils of foster care, child labor, derelict schools, athletic success, addiction, disastrous loves, and crushing losses. Through all of it, he reckons with his own invisibility in a popular culture where even the superheroes have abandoned rural people in favor of cities.",
+      "publisher": "Harper",
+      "imageUrl": "https://images-us.bookshop.org/ingram/9780063251922.jpg?height=500&v=v2-2a0401d1fca1ac218ec13add00000000"
+    },
+    {
+      "id": "3",
+      "title": "Wildflower: A Memoir",
+      "details": [
+        {
+          "Author": "Aurora James"
+        },
+        {
+          "EAN/UPC": "9780593239452"
+        },
+        {
+          "Pages": "304"
+        },
+        {
+          "Cover": "Hardcover"
+        }
+      ],
+      "description": "Aurora James's life is a great American 'success story' precisely because it looks so different from others we've seen. Born in Canada to a counterculture mother, James was raised to question everything specifically the very institutions that have shaped so many of us. When James was seven, her mother married a man who would move them to Jamaica, where James would learn harsh lessons about control, power, abuse, and belonging. Eventually she would find her way back home to Toronto, where her blue-eyed and fair-haired grandmother welcomed her with unconditional love and inadvertently showed her that racism is the water in which we are all submerged.",
+      "publisher": "Crown Publishing Group (NY)",
+      "imageUrl": "https://images-us.bookshop.org/ingram/9780593239452.jpg?height=500&v=v2-4e71ee16606744bec6e66c3c915b67f8"
+    }
+  ]
+}

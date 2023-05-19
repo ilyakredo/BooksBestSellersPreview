@@ -1,0 +1,7 @@
+.App {
+  min-height: 100%;
+}
+
+.App.dark {
+  background: var(--dark-1);
+}
