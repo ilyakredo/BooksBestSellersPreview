@@ -1,14 +1,50 @@
 // Styles
 import { useParams } from "react-router-dom";
 import styles from "./Book.module.css";
-import { useFetch } from "../../hooks/useFetch";
 import { useTheme } from "../../hooks/useTheme";
+import { useState, useEffect } from "react";
+import { projectFirestore } from "../../firebase/config";
+
+const createBookObj = (data, id) => {
+  return {
+    id: id,
+    title: data.title,
+    description: data.description,
+    publisher: data.publisher,
+    imageUrl: data.imageUrl,
+    details: [
+      { Author: data.details[0] },
+      { "EAN/UPC": data.details[1] },
+      { Pages: data.details[2] },
+      { Cover: data.details[3] },
+    ],
+  };
+};
 
 export const Book = () => {
   const { id } = useParams();
-  const FETCH_URL = `http://localhost:3000/books/${id}`;
-  const { data: book, isPending, error } = useFetch(FETCH_URL);
   const { mode } = useTheme();
+
+  const [book, setBook] = useState(null);
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setIsPending(true);
+    projectFirestore
+      .collection("BooksBestSellers")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          setIsPending(false);
+          setBook(createBookObj(doc.data()));
+        } else {
+          setIsPending(false);
+          setError("Could not find book");
+        }
+      });
+  }, [id]);
 
   return (
     <div className={`${styles.book} ${styles[mode]}`}>

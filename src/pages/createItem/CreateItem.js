@@ -1,11 +1,30 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { projectFirestore } from "../../firebase/config";
 import { BookDetails } from "../../components/BookDetails";
-import { useFetch } from "../../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
 
 // Styles
 import styles from "./CreateItem.module.css";
+
+const createDetailsArr = (detailsObjArr) => {
+  const detailsArr = [];
+  detailsObjArr.forEach((detail) => {
+    if (Object.keys(detail)[0] === "Author") {
+      detailsArr[0] = detail["Author"];
+    }
+    if (Object.keys(detail)[0] === "EAN/UPC") {
+      detailsArr[1] = detail["EAN/UPC"];
+    }
+    if (Object.keys(detail)[0] === "Pages") {
+      detailsArr[2] = detail["Pages"];
+    }
+    if (Object.keys(detail)[0] === "Cover") {
+      detailsArr[3] = detail["Cover"];
+    }
+  });
+  return detailsArr;
+};
 
 export const CreateItem = () => {
   const [title, setTitle] = useState("");
@@ -13,65 +32,40 @@ export const CreateItem = () => {
   const [publisher, setPublisher] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [detailOption, setDetailOption] = useState("Author");
-  const [details, setDetails] = useState([]);
+  const [bookDetails, setBookDetails] = useState([]);
   const [detailValue, setDetailValue] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-
   const navigate = useNavigate();
 
   const { mode } = useTheme();
 
-  const { postData, data, error } = useFetch(
-    "http://localhost:3000/books",
-    "POST"
-  );
-
-  const handleBookAdding = (event) => {
+  const handleBookAdding = async (event) => {
     event.preventDefault();
-    postData({
-      title,
-      description,
-      publisher,
-      imageUrl,
-      details,
-    });
-  };
-
-  // redirect user when we get data response
-  useEffect(() => {
-    if (data) {
+    const details = createDetailsArr(bookDetails);
+    const newBook = { title, description, publisher, imageUrl, details };
+    try {
+      await projectFirestore.collection("BooksBestSellers").add(newBook);
+      // redirect user when we get data response
       navigate("/");
+    } catch (err) {
+      setErrorMsg("Faild to add new book");
+      console.log(err);
     }
-    if (error) {
-      setErrorMsg(error);
-    }
-  }, [data, navigate, error]);
+  };
 
   const addDetailItem = (event) => {
     event.preventDefault();
-    const detailKey = detailOption;
+    const detailsArr = bookDetails;
     if (detailValue) {
-      const bookDetail = {};
-      bookDetail[detailKey] = detailValue;
-      setDetails((prevValue) => {
-        if (prevValue.length > 0) {
-          if (
-            prevValue.find((detail) => Object.keys(detail)[0] === detailKey)
-          ) {
-            return prevValue.map((detail) => {
-              if (Object.keys(detail)[0] === detailKey) {
-                return bookDetail;
-              } else {
-                return detail;
-              }
-            });
-          } else {
-            return [...prevValue, bookDetail];
-          }
-        } else {
-          return [bookDetail];
-        }
-      });
+      const detailInd = detailsArr.findIndex(
+        (detail) => Object.keys(detail)[0] === detailOption
+      );
+      if (detailInd >= 0) {
+        detailsArr[detailInd][`${detailOption}`] = detailValue;
+      } else {
+        detailsArr.push({ [`${detailOption}`]: detailValue });
+      }
+      setBookDetails(detailsArr);
     }
     setDetailValue("");
   };
@@ -120,7 +114,7 @@ export const CreateItem = () => {
               Add
             </button>
           </div>
-          {details.length > 0 && <BookDetails details={details} />}
+          {bookDetails.length > 0 && <BookDetails details={bookDetails} />}
         </label>
         <label>
           <span>Book description: </span>

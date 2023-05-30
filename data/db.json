@@ -62,6 +62,27 @@
       "description": "Aurora James's life is a great American 'success story' precisely because it looks so different from others we've seen. Born in Canada to a counterculture mother, James was raised to question everything specifically the very institutions that have shaped so many of us. When James was seven, her mother married a man who would move them to Jamaica, where James would learn harsh lessons about control, power, abuse, and belonging. Eventually she would find her way back home to Toronto, where her blue-eyed and fair-haired grandmother welcomed her with unconditional love and inadvertently showed her that racism is the water in which we are all submerged.",
       "publisher": "Crown Publishing Group (NY)",
       "imageUrl": "https://images-us.bookshop.org/ingram/9780593239452.jpg?height=500&v=v2-4e71ee16606744bec6e66c3c915b67f8"
+    },
+    {
+      "title": "test",
+      "description": "test test test",
+      "publisher": "test",
+      "imageUrl": "https://s1.livelib.ru/boocover/1007094157/200x305/8511/boocover.jpg",
+      "details": [
+        {
+          "Author": "test"
+        },
+        {
+          "EAN/UPC": "978995555555"
+        },
+        {
+          "Pages": "555"
+        },
+        {
+          "Cover": "test"
+        }
+      ],
+      "id": "rXLc06k"
     }
   ]
 }
